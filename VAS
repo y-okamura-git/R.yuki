@@ -1,0 +1,6 @@
+library(exactRankTests)
+wilcox.test
+  vx=c()
+  vy=c()
+  paired=T
+  wilcox.exact(x=vx,y=vy,paired=T)
