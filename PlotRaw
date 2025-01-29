@@ -1,0 +1,19 @@
+rawdata1 <- read.csv(".csv",header=T,skip=40,nrows=2700)
+
+name<-""
+
+time <- seq(from=0, by=1/10, length=2700)
+
+for(i in c(1:22)){
+  title=paste("oxy hemoglobin",i,name)
+  pngTitle=paste(title,".png")
+  png(pngTitle, width = 800, height = 800)
+  par(mar = c(5.5, 6.0, 4.1, 2))
+  par(mgp = c(4, 1.2, 0))    
+  plot(x=time,y=rawdata1[,i+1],type="l",
+       xlab="Time(s)",ylab=" Hb conc.",
+       cex=2.5,cex.lab=2,cex.axis=1.8,cex.main=1.8,
+       at=seq(0,1500, by=30),
+       main=title)
+  dev.off()
+}
